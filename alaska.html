@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alaska 2026: Master Expedition Guide</title>
+    <style>
+        :root {
+            --primary: #003366;
+            --secondary: #005a8d;
+            --accent: #d35400;
+            --veg: #27ae60;
+            --bg: #f4f7f9;
+            --card-bg: #ffffff;
+            --search-bg: #ffffff;
+            --search-border: #dfe1e5;
+            --drive-border: #f39c12;
+            --high: #e74c3c;
+            --medium: #f39c12;
+            --visit: #27ae60;
+            --skip: #7f8c8d;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        header h1 { margin: 0; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 1px; }
+        header p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; }
+
+        .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
+
+        /* Table of Contents */
+        .toc-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .toc-title { margin: 0 0 15px 0; color: var(--primary); font-size: 1.2rem; text-align: center; }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 10px;
+        }
+        .toc-btn {
+            background: #eef2f5;
+            color: var(--secondary);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+        .toc-btn:hover { background: var(--secondary); color: white; }
+        .toc-btn.special { background: #fdf2e9; color: var(--accent); border: 1px solid var(--accent); }
+        .toc-btn.special:hover { background: var(--accent); color: white; }
+
+        .section-title {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.8rem;
+            scroll-margin-top: 20px; 
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            scroll-margin-top: 20px;
+        }
+
+        .day-tag {
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+        }
+
+        .content { padding: 25px; }
+        h2 { margin: 0 0 15px 0; color: var(--primary); font-size: 1.4rem; }
+        
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 8px; }
+
+        .veg-box {
+            background: #e9f5ee;
+            border-left: 4px solid var(--veg);
+            padding: 12px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #1a5c32;
+        }
+
+        .timing-strip {
+            background: #fdf2e9;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 20px;
+            font-weight: bold;
+            color: var(--accent);
+            border: 1px solid #fae5d3;
+        }
+
+        /* Action Buttons */
+        a.action-btn {
+            background-color: var(--search-bg);
+            border: 1px solid var(--search-border);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 4px rgba(32,33,36,.15);
+            font-family: monospace;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        
+        a.action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(32,33,36,.20);
+            background-color: #fafafa;
+        }
+
+        a.search-btn { color: #d35400; border-left: 4px solid #d35400; }
+        a.search-btn::before { content: "👆 View: "; color: #4285f4; margin-right: 10px; font-family: sans-serif; font-size: 0.9rem; }
+
+        a.map-btn { color: #27ae60; border-left: 4px solid #27ae60; margin: 10px 0; padding: 10px 15px;}
+        a.map-btn::before { content: "🗺️ Navigate: "; color: #27ae60; margin-right: 10px; font-family: sans-serif; font-size: 0.9rem;}
+
+        /* Driving Logistics */
+        .logistics-container { margin: 20px 0; border-top: 2px solid #eee; padding-top: 15px; }
+        .logistics-step {
+            display: flex;
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+        .step-time { font-weight: bold; font-size: 1.1rem; color: var(--drive-border); min-width: 80px; }
+        .step-details h4 { margin: 0 0 5px 0; color: var(--primary); font-size: 1rem; }
+        .step-details p { margin: 0; font-size: 0.9rem; color: #555; }
+
+        /* Table Styling */
+        .table-wrapper { overflow-x: auto; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        th { background-color: var(--primary); color: white; padding: 15px; text-align: left; font-size: 1.05rem; }
+        td { padding: 15px; border-bottom: 1px solid #eee; vertical-align: top; }
+        tr:hover { background-color: #f8fbfd; }
+        
+        .badge-diff { display: inline-block; color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; }
+        .diff-high { background-color: var(--high); }
+        .diff-medium { background-color: var(--medium); }
+
+        .badge-rec { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; border: 2px solid; margin-top: 5px; }
+        .rec-visit { color: var(--visit); border-color: var(--visit); background: #e9f5ee; }
+        .rec-skip { color: var(--skip); border-color: var(--skip); background: #f2f4f4; }
+
+        .cost-table th { background: #f4f7f9; color: var(--primary); border-bottom: 2px solid #ddd; }
+        .total-row { background: #eee; font-weight: bold; }
+
+        @media (max-width: 600px) {
+            .day-tag { font-size: 0.9rem; flex-direction: column; text-align: center; gap: 5px; }
+            .logistics-step { flex-direction: column; align-items: flex-start; }
+            .step-time { margin-bottom: 10px; }
+            .toc-grid { grid-template-columns: repeat(2, 1fr); }
+            .timing-strip { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+<a href="index.html" style="display:inline-block; margin:20px; text-decoration:none; color:#003366; font-weight:bold;">← Back to All Trips</a>
+<header>
+    <h1>ALASKA EXPEDITION 2026</h1>
+    <p>May 28 – June 5</p>
+</header>
+
+<div class="container">
+
+    <div class="toc-container">
+        <h3 class="toc-title">📍 Quick Navigation</h3>
+        <div class="toc-grid">
+            <a href="#day1" class="toc-btn">Day 1: Arrival</a>
+            <a href="#day2" class="toc-btn">Day 2: Matanuska</a>
+            <a href="#day3" class="toc-btn">Day 3: Zoo & Trolley</a>
+            <a href="#day4" class="toc-btn">Day 4: Talkeetna</a>
+            <a href="#day5" class="toc-btn">Day 5: South Drive</a>
+            <a href="#day6" class="toc-btn">Day 6: Railroad</a>
+            <a href="#day7" class="toc-btn">Day 7: Kenai Cruise</a>
+            <a href="#day8" class="toc-btn">Day 8: Exit Glacier</a>
+            <a href="#day9" class="toc-btn">Day 9: Departure</a>
+            <a href="#comparisons" class="toc-btn special">Comparisons</a>
+            <a href="#budget" class="toc-btn special">Budget</a>
+        </div>
+    </div>
+
+    <h2 class="section-title">🗓️ Day-by-Day Itinerary</h2>
+
+    <div class="card" id="day1">
+        <div class="day-tag"><span>MAY 28</span><span>ARRIVAL & SETTLING IN</span></div>
+        <div class="content">
+            <h2>Touchdown in Anchorage</h2>
+            <ul>
+                <li>Land at ANC, pick up 2 Compact SUVs (Enterprise). </li>
+                <li>Drive to Airbnb: <b>3250 Racquet Circle</b>. </li>
+                <li><b>Grocery Run:</b> Costco Wholesale (Dimond Blvd) is 3 miles away. </li>
+            </ul>
+            
+            <div class="logistics-container">
+                <div class="logistics-step">
+                    <div class="step-time">15 Min</div>
+                    <div class="step-details">
+                        <h4>Airport to Airbnb</h4>
+                        <a href="https://maps.app.goo.gl/CEgvpvt9BeJhbc1N8" target="_blank" class="action-btn map-btn">Start Navigation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="day2">
+        <div class="day-tag"><span>MAY 29</span><span>THE ICE DAY</span></div>
+        <div class="content">
+            <div class="timing-strip">
+                <span>🕒 Leave: 7:30 - 8:00 AM</span>
+                <span>📍 Reach: 10:00 AM</span>
+            </div>
+            <h2>Matanuska Glacier ("Antelope Canyon of Ice")</h2>
+            <a href="https://www.google.com/search?tbm=isch&q=Matanuska+Glacier+guided+ice+trek+crevasses" target="_blank" class="action-btn search-btn">Matanuska Glacier ice trek</a>
+            <ul>
+                <li><b>Food:</b> Cook and carry for the whole day. </li>
+                <li><b>Strategy:</b> 
+                    <br>- <b>Trekkers (Alok, Aayushi, Niyati):</b> 2-3 hour trek (10:00 AM slot). 
+                    <br>- <b>Non-hikers:</b> Drive to <b>Sheep Mountain Lodge</b> (15 mins away) for free Wi-Fi and wildlife spotting. 
+                </li>
+            </ul>
+
+            <div class="logistics-container">
+                <div class="logistics-step">
+                    <div class="step-time">2 Hrs</div>
+                    <div class="step-details">
+                        <h4>Airbnb to Recreation Centre</h4>
+                        <a href="https://maps.app.goo.gl/WnDVD97krKNC29Dr8" target="_blank" class="action-btn map-btn">Start Navigation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="day3">
+        <div class="day-tag"><span>MAY 30</span><span>ANIMALS & CITY HISTORY</span></div>
+        <div class="content">
+            <div class="timing-strip">
+                <span>🕒 Leave: 9:30 - 9:45 AM</span>
+                <span>📍 Reach: 10:00 AM</span>
+            </div>
+            <h2>Alaska Zoo & Trolley Tours</h2>
+            <a href="https://www.google.com/search?tbm=isch&q=Alaska+Zoo+Anchorage+enclosures" target="_blank" class="action-btn search-btn">Alaska Zoo Anchorage</a>
+            <ul>
+                <li><b>Morning:</b> Alaska Zoo (very close to Airbnb). </li>
+                <li><b>Food:</b> Carry snacks for zoo; return home for lunch before downtown. </li>
+                <li><b>Afternoon:</b> Anchorage Trolley Tours (Log Cabin Visitor Center). Minimal walking. </li>
+                <li><b>Kids Highlight:</b> Discovery Center play area or Wild Berry Products chocolate waterfall! </li>
+            </ul>
+
+            <div class="logistics-container">
+                <div class="logistics-step">
+                    <div class="step-time">12 Min</div>
+                    <div class="step-details">
+                        <h4>Airbnb to Alaska Zoo</h4>
+                        <a href="https://maps.app.goo.gl/nykpEpbiHJLaL5zM6" target="_blank" class="action-btn map-btn">Start Navigation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="day4">
+        <div class="day-tag"><span>MAY 31</span><span>THE SKY SUMMIT</span></div>
+        <div class="content">
+            <div class="timing-strip">
+                <span>🕒 Leave: 7:00 - 7:30 AM</span>
+                <span>📍 Reach: 10:00 AM</span>
+            </div>
+            <h2>Denali Flightseeing (Talkeetna)</h2>
+            <a href="https://www.google.com/search?tbm=isch&q=Ruth+Glacier+Denali+ski+plane+landing" target="_blank" class="action-btn search-btn">Ruth Glacier Denali landing</a>
+            <ul>
+                <li><b>Food:</b> Cook and carry. </li>
+                <li><b>Gear:</b> Sunglasses and brimmed hats are a MUST for glacier glare. </li>
+                <li><b>Note:</b> Glacier is 10-15°F colder than Talkeetna. Dress kids in layers. </li>
+            </ul>
+            <div style="background: #fdf2e9; border: 1px dashed var(--accent); padding: 10px; font-family: monospace; color: var(--accent); margin-top: 10px;">Booking Ref: GYGRFQXFBFQ7</div>
+
+            <div class="logistics-container">
+                <div class="logistics-step">
+                    <div class="step-time">2.5 Hrs</div>
+                    <div class="step-details">
+                        <h4>Airbnb to Talkeetna Airport</h4>
+                        <a href="https://maps.app.goo.gl/2qxTjm1ekgPdD71Y8" target="_blank" class="action-btn map-btn">Start Navigation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="day5">
+        <div class="day-tag"><span>JUNE 1</span><span>SCENIC SOUTH DRIVE</span></div>
+        <div class="content">
+            <div class="timing-strip">
+                <span>🕒 10:00 AM: Start Drive</span>
+                <span>🕒 11:30 AM: Alyeska Tram</span>
+                <span>🕒 3:00 PM: AWCC</span>
+            </div>
+            <h2>Coastline & Wildlife</h2>
+            <ul>
+                <li><b>Stop 1:</b> Beluga Point (arrive 10:30 AM). Spot whales! </li>
+                <li><b>Stop 2:</b> Alyeska Aerial Tram (arrive 11:30 AM). Plan for 1.5 - 2 hours. </li>
+                <li><b>Stop 3:</b> Alaska Wildlife Conservation Centre (arrive 3:00 PM). </li>
+            </ul>
+
+            <div class="logistics-container">
+                <div class="logistics-step">
+                    <div class="step-time">1 Hr</div>
+                    <div class="step-details">
+                        <h4>Airbnb to AWCC Route</h4>
+                        <a href="https://maps.app.goo.gl/LdMjMkQNLxgf257S6" target="_blank" class="action-btn map-btn">Start Navigation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="day6">
+        <div class="day-tag"><span>JUNE 2</span><span>THE RAIL DAY</span></div>
+        <div class="content">
+            <div class="timing-strip">
+                <span>🕒 Leave: 5:00 AM</span>
+                <span>📍 Depot: 5:45 AM (TSA Check-in)</span>
+            </div>
+            <h2>Coastal Classic to Seward</h2>
+            <ul>
+                <li><b>Rail:</b> Anchorage to Seward (6:45 AM - 11:20 AM). </li>
+                <li><b>Check-in:</b> Lakeside Airbnb near Bear Lake. </li>
+                <li><b>Afternoon:</b> Alaska SeaLife Center (optional if luggage allows). [cite: 1, 2]</li>
+            </ul>
+            <div style="background: #fdf2e9; border: 1px dashed var(--accent); padding: 10px; font-family: monospace; color: var(--accent); margin-top: 10px;">Booking Ref: WRR772662</div>
+
+            <div class="logistics-container">
+                <div class="logistics-step">
+                    <div class="step-time">15 Min</div>
+                    <div class="step-details">
+                        <h4>Airbnb to Train Depot</h4>
+                        <a href="https://maps.app.goo.gl/4DKez5sgbFydZpoY6" target="_blank" class="action-btn map-btn">Start Navigation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="day7">
+        <div class="day-tag"><span>JUNE 3</span><span>MARINE SAFARI</span></div>
+        <div class="content">
+            <div class="timing-strip">
+                <span>🕒 Leave: 9:30 AM</span>
+                <span>📍 Harbor: 10:00 AM</span>
+            </div>
+            <h2>Kenai Fjords Cruise</h2>
+            <ul>
+                <li><b>Activity:</b> 7.5-Hour Glacier & Whale Cruise. Check in at Harbor 360 Hotel lobby. </li>
+                <li><b>Food:</b> Cook and carry for the whole day. </li>
+            </ul>
+
+            <div class="logistics-container">
+                <div class="logistics-step">
+                    <div class="step-time">12 Min</div>
+                    <div class="step-details">
+                        <h4>Seward Airbnb to Major Marine</h4>
+                        <a href="https://maps.app.goo.gl/SiE6Dgqeqsps5E8j6" target="_blank" class="action-btn map-btn">Start Navigation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="day8">
+        <div class="day-tag"><span>JUNE 4</span><span>EXIT GLACIER</span></div>
+        <div class="content">
+            <div class="timing-strip">
+                <span>🕒 Leave: 9:30 AM</span>
+                <span>📍 Park: 10:00 AM</span>
+            </div>
+            <h2>Kenai Fjords Nature Walk</h2>
+            <ul>
+                <li><b>Activity:</b> Stroller-friendly walk to the ice face. </li>
+                <li><b>Note:</b> Arrive by 10:00 AM before parking fills up. </li>
+                <li><b>For Kids:</b> Junior Ranger activity and Ranger chats! </li>
+            </ul>
+
+            <div class="logistics-container">
+                <div class="logistics-step">
+                    <div class="step-time">20 Min</div>
+                    <div class="step-details">
+                        <h4>Seward Airbnb to Exit Glacier</h4>
+                        <a href="https://maps.app.goo.gl/S5NCA32jQFP3ZFcf6" target="_blank" class="action-btn map-btn">Start Navigation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="day9">
+        <div class="day-tag"><span>JUNE 5</span><span>DEPARTURE</span></div>
+        <div class="content">
+            <div class="timing-strip">
+                <span>🕒 Leave: 9:15 AM</span>
+                <span>📍 Terminal: 9:30 AM</span>
+            </div>
+            <h2>Seward to Anchorage Transfer</h2>
+            <ul>
+                <li><b>ACT BIG BUS:</b> Departs Seward terminal at 10:30 AM. Narrated direct transfer. [cite: 1, 2]</li>
+                <li><b>Drop-off:</b> Ted Stevens Airport (ANC) ~1:00 PM. </li>
+            </ul>
+            <div style="background: #fdf2e9; border: 1px dashed var(--accent); padding: 10px; font-family: monospace; color: var(--accent); margin-top: 10px;">Bus Confirmation: 144487</div>
+        </div>
+    </div>
+
+    <h2 class="section-title" id="comparisons">🧭 Comparisons</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th width="20%">Experience</th>
+                    <th width="40%">The Baseline</th>
+                    <th width="40%">The Alaskan Difference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>Ice Field</b></td>
+                    <td>Canada: "Ice Explorer" bus tour onto flattened ice.</td>
+                    <td>Matanuska: Tactile trekking through blue crevasses and moulins.</td>
+                </tr>
+                <tr>
+                    <td><b>Wildlife</b></td>
+                    <td>Traditional City Zoo</td>
+                    <td>AWCC: bison and bears in massive open mountain pastures.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 class="section-title" id="budget">💰 Confirmed Budget</h2>
+    <div class="card" style="padding: 0;">
+        <table class="cost-table" style="box-shadow: none; border-radius: 0;">
+            <thead>
+                <tr><th style="padding: 15px;">Category</th><th style="padding: 15px;">Amount (USD)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Anchorage Airbnb (4 Nights)</td><td>$1,702.59</td></tr>
+                <tr><td>Seward Lakeside Airbnb (3 Nights)</td><td>$1,500.00</td></tr>
+                <tr><td>Rental SUVs (Enterprise - AWD)</td><td>$774.00</td></tr>
+                <tr><td>Denali Flightseeing (Full Group)</td><td>$3,138.20</td></tr>
+                <tr><td>Kenai Fjords Marine Cruise</td><td>$1,640.00</td></tr>
+                <tr><td>Coastal Classic Train</td><td>$799.00</td></tr>
+                <tr><td>ACT BIG BUS Transfer</td><td>$524.30</td></tr>
+                <tr class="total-row"><td>CONFIRMED BOOKINGS TOTAL</td><td>$10,078.09</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<footer style="text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #666; background: #eef2f5; margin-top: 40px;">
+    <strong>Safe Travels:</strong> Wishing Alok, Aayu, Amaira, and Ariha a spectacular adventure!
+</footer>
+
+</body>
+</html>
