@@ -14,7 +14,6 @@
             --card-bg: #ffffff;
             --search-bg: #ffffff;
             --search-border: #dfe1e5;
-            /* Table Colors */
             --high: #e74c3c;
             --medium: #f39c12;
             --visit: #27ae60;
@@ -87,6 +86,17 @@
             color: #1a5c32;
         }
 
+        .booking-ref {
+            background: #fdf2e9;
+            border: 1px dashed var(--accent);
+            padding: 10px;
+            font-family: monospace;
+            color: var(--accent);
+            display: inline-block;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
         /* Search Button Styling */
         a.search-box {
             background-color: var(--search-bg);
@@ -142,8 +152,6 @@
 
         @media (max-width: 600px) {
             .day-tag { font-size: 0.9rem; flex-direction: column; text-align: center; gap: 5px; }
-            a.search-box { font-size: 0.85rem; padding: 10px; }
-            a.search-box::before { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -151,7 +159,7 @@
 
 <header>
     <h1>ALASKA EXPEDITION 2026</h1>
-    <p>May 29 – June 5</p>
+    <p>May 28 – June 5</p>
 </header>
 
 <div class="container">
@@ -159,54 +167,69 @@
     <h2 class="section-title">🗓️ Day-by-Day Itinerary</h2>
 
     <div class="card">
-        <div class="day-tag"><span>MAY 29</span><span>ARRIVAL & SOUTH DRIVE</span></div>
+        <div class="day-tag"><span>MAY 28</span><span>ARRIVAL & SETTLING IN</span></div>
         <div class="content">
-            <h2>Start with Scenery</h2>
-            <a href="https://www.google.com/search?tbm=isch&q=Turnagain+Arm+Seward+Highway+scenic+drive" target="_blank" rel="noopener noreferrer" class="search-box">Turnagain Arm Seward Highway</a>
+            <h2>Touchdown in Anchorage</h2>
             <ul>
-                <li>Pick up 2 rental minivans at ANC Airport and head to 3250 Racquet Circle Airbnb.</li>
-                <li><b>Scenic Drive:</b> Drive South along Turnagain Arm, watching for Beluga whales in the surf.</li>
-                <li><b>Alyeska Tram:</b> 45-min drive to Girdwood. Ascend 2,300ft for views of 7 hanging glaciers and the ocean.</li>
+                <li>Land at ANC Airport and pick up 2 Compact AWD SUVs from Enterprise.</li>
+                <li>Drive 7-8 miles to the Airbnb: <b>3250 Racquet Circle, Anchorage, AK 99507</b>.</li>
+                <li><b>Grocery Run:</b> Head to the Costco (just 3 miles away) to stock up on vegetarian essentials, snacks, and supplies for the driving days ahead.</li>
             </ul>
-            <div class="veg-box"><b>🥦 Dining:</b> Stop at Jack Sprat in Girdwood for highly-rated vegetarian options.</div>
+            <div class="veg-box"><b>🥦 Dining Note:</b> With a fully stocked Airbnb kitchen, tonight is a great night for a relaxed, home-cooked family dinner after a long travel day.</div>
         </div>
     </div>
 
     <div class="card">
-        <div class="day-tag"><span>MAY 30</span><span>LOCAL EXPLORATION</span></div>
+        <div class="day-tag"><span>MAY 29</span><span>THE ICE DAY</span></div>
         <div class="content">
-            <h2>Zoo, Trolley & Logistics</h2>
+            <h2>Matanuska Glacier (Antelope Canyon with Ice)</h2>
+            <a href="https://www.google.com/search?tbm=isch&q=Matanuska+Glacier+guided+ice+trek+crevasses" target="_blank" rel="noopener noreferrer" class="search-box">Matanuska Glacier ice trek</a>
+            <ul>
+                <li>100-mile scenic drive Northeast on the Glenn Highway.</li>
+                <li><b>Activity:</b> We will utilize the "Divide & Conquer" strategy here. 
+                    <br>- <b>Trekkers (Alok, Aayushi, Niyati):</b> Will take a guided tour to walk on the deep blue ice and crevasses.
+                    <br>- <b>Scenic Explorers (Umesh, Seema, Ananya, Amaira, Ariha):</b> Will enjoy the easy "Toe" walk at the Recreation Site and wildlife spotting at Sheep Mountain Lodge.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="day-tag"><span>MAY 30</span><span>ANIMALS & EDUCATION</span></div>
+        <div class="content">
+            <h2>Alaska Zoo & City History</h2>
             <a href="https://www.google.com/search?tbm=isch&q=Alaska+Zoo+Anchorage+enclosures" target="_blank" rel="noopener noreferrer" class="search-box">Alaska Zoo Anchorage</a>
             <ul>
-                <li><b>Anchorage Zoo:</b> Morning visit to see brown bears and moose. Ideal, low-intensity pace for Amaira and Ariha to adjust.</li>
-                <li><b>Optional Trolley:</b> Afternoon narrated tour of city history and Earthquake Park.</li>
-                <li><b>Grocery Run:</b> Stock up at Fred Meyer for vegetarian staples (lentils, fresh produce, snacks) to prep for the driving days.</li>
-            </ul>
-            <div class="veg-box"><b>🥦 Dining:</b> Try Middle Way Cafe (Lunch) or Snow City Cafe (Breakfast).</div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="day-tag"><span>MAY 31</span><span>THE ICE DAY</span></div>
-        <div class="content">
-            <h2>Matanuska Glacier Trek</h2>
-            <a href="https://www.google.com/search?tbm=isch&q=Matanuska+Glacier+guided+ice+trek+crevasses" target="_blank" rel="noopener noreferrer" class="search-box">Matanuska Glacier guided ice trek</a>
-            <ul>
-                <li>2-hour drive Northeast on the spectacular Glenn Highway.</li>
-                <li><b>Activity:</b> Guided trek directly onto the blue ice. A highly tactile experience walking among seracs and moulins.</li>
-                <li><b>Note:</b> Sturdy layers are essential; temperatures drop significantly on the ice.</li>
+                <li><b>Morning:</b> Visit the Alaska Zoo (only 5-6 miles from the Airbnb). A perfect, stroller-friendly pace for Amaira and Ariha.</li>
+                <li><b>Afternoon:</b> Board the Alaska Trolley for a narrated tour of the city and its history.</li>
             </ul>
         </div>
     </div>
 
     <div class="card">
-        <div class="day-tag"><span>JUNE 1</span><span>THE SKY DAY</span></div>
+        <div class="day-tag"><span>MAY 31</span><span>THE SKY SUMMIT</span></div>
         <div class="content">
-            <h2>Talkeetna Flightseeing</h2>
+            <h2>Denali Flightseeing & Glacier Landing</h2>
             <a href="https://www.google.com/search?tbm=isch&q=Ruth+Glacier+Denali+ski+plane+landing" target="_blank" rel="noopener noreferrer" class="search-box">Ruth Glacier Denali ski plane landing</a>
             <ul>
-                <li><b>6:45 AM Start:</b> 2.5-hour drive North to Talkeetna.</li>
-                <li><b>Highlight:</b> 90-minute flight around Denali’s summit with a ski-plane landing on the untouched snow of the Ruth Glacier in the Great Gorge.</li>
+                <li><b>Logistics:</b> 2.5-hour scenic drive north to Talkeetna (14212 E 2nd St). Arrive 45 mins prior to departure.</li>
+                <li><b>Highlight:</b> 90-minute bush plane flight around Denali’s summit, ending with a ski-plane landing directly on the ice.</li>
+                <li><b>The Team:</b> 5 Adults, 3 Children (Traveler: Niyati Thosani).</li>
+            </ul>
+            <div class="booking-ref">Booking Reference: GYGRFQXFBFQ7</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="day-tag"><span>JUNE 1</span><span>THE SCENIC SOUTH DRIVE</span></div>
+        <div class="content">
+            <h2>Turnagain Arm & Wildlife</h2>
+            <a href="https://www.google.com/search?tbm=isch&q=Turnagain+Arm+Seward+Highway" target="_blank" rel="noopener noreferrer" class="search-box">Turnagain Arm Seward Highway</a>
+            <ul>
+                <li><b>The Drive:</b> 1-hour spectacular coastal drive South along the Turnagain Arm. Stop at Beluga Point for views.</li>
+                <li><b>Alyeska Aerial Tram:</b> Ascend the mountain to view 7 hanging glaciers.</li>
+                <li><b>AWCC:</b> Drive the SUVs through the large enclosures at the Alaska Wildlife Conservation Center to see bears, moose, and bison.</li>
+                <li><b>Note:</b> Head back to the Airbnb early to rest up for tomorrow's early train!</li>
             </ul>
         </div>
     </div>
@@ -217,7 +240,7 @@
             <h2>Coastal Classic to Seward</h2>
             <a href="https://www.google.com/search?tbm=isch&q=Coastal+Classic+Alaska+Railroad+Turnagain+Arm" target="_blank" rel="noopener noreferrer" class="search-box">Coastal Classic Alaska Railroad</a>
             <ul>
-                <li>Board the <b>Coastal Classic Route</b> (Booking #WRR772662).</li>
+                <li><b>6:45 AM Start:</b> Board the Coastal Classic Route (Booking #WRR772662).</li>
                 <li>Travel through the roadless wilderness of the Kenai Mountains.</li>
                 <li><b>Afternoon:</b> Check-in to Seward accommodation and visit the Alaska SeaLife Center.</li>
             </ul>
@@ -233,7 +256,6 @@
                 <li><b>Activity:</b> 7.5-hour Glacier & Wildlife Cruise with Major Marine Tours.</li>
                 <li>Observe humpback whales, orcas, and massive tidewater glaciers actively calving into the sea.</li>
             </ul>
-            <div class="veg-box"><b>🥦 Dining:</b> The cruise includes a complimentary vegetarian buffet lunch. Check out The Cookery in Seward for dinner.</div>
         </div>
     </div>
 
@@ -244,7 +266,7 @@
             <a href="https://www.google.com/search?tbm=isch&q=Exit+Glacier+Nature+Center+trail+recession+markers" target="_blank" rel="noopener noreferrer" class="search-box">Exit Glacier Nature Center trail</a>
             <ul>
                 <li>Short drive from Seward to the Kenai Fjords Nature Center.</li>
-                <li><b>Activity:</b> Walk the accessible trails to the "Edge of the Glacier" to see the ice wall and the historical dated recession markers.</li>
+                <li><b>Activity:</b> Walk the accessible trails to the "Edge of the Glacier" to see the ice wall and historical recession markers.</li>
             </ul>
         </div>
     </div>
@@ -255,7 +277,7 @@
             <h2>Return to Anchorage</h2>
             <ul>
                 <li><b>Transfer:</b> ACT BIG BUS narrated transfer departs 10:30 AM from the Seward Cruise Terminal (Confirmation: #144487).</li>
-                <li><b>Final Drop:</b> Arrive at ANC Airport ~1:00 PM for flights back.</li>
+                <li><b>Final Drop:</b> Arrive at ANC Airport ~1:00 PM for flights back home.</li>
             </ul>
         </div>
     </div>
@@ -277,11 +299,11 @@
                 <tr>
                     <td><b>The Ice Field</b></td>
                     <td>
-                        <b>Canada (Athabasca):</b> Controlled, scenic experience riding an "Ice Explorer" bus onto a flattened section of an alpine glacier.
+                        <b>Canada (Athabasca):</b> Controlled, scenic experience riding an "Ice Explorer" bus.
                         <a href="https://www.google.com/search?tbm=isch&q=Athabasca+Glacier+Ice+Explorer+bus" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">Athabasca Glacier bus</a>
                     </td>
                     <td>
-                        <b>Alaska (Matanuska):</b> A raw trekking adventure hiking on foot through jagged ice towers and deep meltwater shafts on a valley glacier.
+                        <b>Alaska (Matanuska):</b> A raw trekking adventure hiking on foot through jagged ice towers.
                         <a href="https://www.google.com/search?tbm=isch&q=Matanuska+Glacier+ice+trek+crevasses" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">Matanuska Glacier trek</a>
                     </td>
                     <td>
@@ -289,15 +311,14 @@
                         <span class="badge-rec rec-visit">MUST VISIT</span>
                     </td>
                 </tr>
-
                 <tr>
                     <td><b>Scenic Drive</b></td>
                     <td>
-                        <b>Canada (Rockies):</b> Inland alpine roads winding through granite peaks and turquoise lakes. Landlocked.
+                        <b>Canada (Rockies):</b> Inland alpine roads winding through granite peaks. Landlocked.
                         <a href="https://www.google.com/search?tbm=isch&q=Icefields+Parkway+Rockies+drive" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">Icefields Parkway</a>
                     </td>
                     <td>
-                        <b>Alaska (Turnagain Arm):</b> A dramatic coastal highway where mountains rise sheerly out of the ocean. Spot Beluga whales from the road.
+                        <b>Alaska (Turnagain Arm):</b> A dramatic coastal highway. Spot Beluga whales from the road.
                         <a href="https://www.google.com/search?tbm=isch&q=Turnagain+Arm+Seward+Highway" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">Turnagain Arm</a>
                     </td>
                     <td>
@@ -305,15 +326,14 @@
                         <span class="badge-rec rec-visit">MUST VISIT</span>
                     </td>
                 </tr>
-
                 <tr>
                     <td><b>Wildlife</b></td>
                     <td>
-                        <b>Alaska Zoo:</b> Traditional zoo setting focused on orphaned local wildlife. Great for a low-energy walking day.
+                        <b>Alaska Zoo:</b> Traditional zoo setting focused on orphaned local wildlife. 
                         <a href="https://www.google.com/search?tbm=isch&q=Alaska+Zoo+Anchorage+enclosures" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">Alaska Zoo</a>
                     </td>
                     <td>
-                        <b>AWCC (Portage):</b> Open-air conservation center where wood bison and bears roam in massive natural pastures against mountains.
+                        <b>AWCC (Portage):</b> Open-air conservation center where bison and bears roam in massive natural pastures.
                         <a href="https://www.google.com/search?tbm=isch&q=Alaska+Wildlife+Conservation+Center" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">AWCC Portage</a>
                     </td>
                     <td>
@@ -321,57 +341,24 @@
                         <span class="badge-rec rec-visit">PRIORITIZE AWCC</span>
                     </td>
                 </tr>
-
-                <tr>
-                    <td><b>Geology</b></td>
-                    <td>
-                        <b>Yellowstone:</b> A massive geothermal wonderland with erupting geysers and boiling hot springs.
-                        <a href="https://www.google.com/search?tbm=isch&q=Yellowstone+geothermal+features" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">Yellowstone features</a>
-                    </td>
-                    <td>
-                        <b>Earthquake Park:</b> A localized city park showing the physical tectonic scar of the 1964 earthquake. Forested, undulating, dropped earth.
-                        <a href="https://www.google.com/search?tbm=isch&q=Earthquake+Park+Anchorage+undulating+ground" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">Earthquake Park</a>
-                    </td>
-                    <td>
-                        <span class="badge-diff diff-high">High Difference</span>
-                        <span class="badge-rec rec-skip">QUICK STOP</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><b>Ascents</b></td>
-                    <td>
-                        <b>Whistler Resort:</b> Massive alpine resort with gondolas spanning deep, landlocked alpine valleys.
-                        <a href="https://www.google.com/search?tbm=isch&q=Whistler+Peak+2+Peak+gondola" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">Whistler Gondola</a>
-                    </td>
-                    <td>
-                        <b>Alyeska Tram:</b> Ascends from a coastal rainforest to a viewing deck. See 7 hanging glaciers and the ocean simultaneously.
-                        <a href="https://www.google.com/search?tbm=isch&q=Alyeska+Tram+Turnagain+Arm" target="_blank" rel="noopener noreferrer" class="search-box" style="padding:8px; font-size:0.8rem; margin:10px 0 0;">Alyeska Tram</a>
-                    </td>
-                    <td>
-                        <span class="badge-diff diff-medium">Medium Difference</span>
-                        <span class="badge-rec rec-visit">VISIT (Great Intro)</span>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>
 
-    <h2 class="section-title">💰 Estimated Group Budget</h2>
+    <h2 class="section-title">💰 Confirmed & Estimated Budget</h2>
     <div class="card" style="padding: 0;">
         <table class="cost-table" style="box-shadow: none; border-radius: 0;">
             <thead>
-                <tr><th style="padding: 15px;">Expense Category</th><th style="padding: 15px;">Estimated Total (USD)</th></tr>
+                <tr><th style="padding: 15px;">Expense Category</th><th style="padding: 15px;">Amount (USD)</th></tr>
             </thead>
             <tbody>
-                <tr><td>Flights (SFO to ANC - 7 Seats + Infant)</td><td>$4,500 – $5,200</td></tr>
-                <tr><td>Accommodation (7 Nights Anchorage/Seward)</td><td>$4,000 – $5,500</td></tr>
-                <tr><td>Denali Flightseeing (Full Group)</td><td>$4,500 – $5,100</td></tr>
-                <tr><td>Rental Minivans + Fuel (from Day 1)</td><td>$2,200 – $2,800</td></tr>
-                <tr><td>Kenai Fjords Marine Cruise</td><td>$1,450 – $1,600</td></tr>
-                <tr><td>Alaska Railroad (Coastal Classic)</td><td>~$800</td></tr>
-                <tr><td>ACT BIG BUS Transfer (Day 8)</td><td>$524</td></tr>
-                <tr class="total-row"><td>ESTIMATED GRAND TOTAL (Excl. Food)</td><td>$17,974 – $21,524</td></tr>
+                <tr><td>Anchorage Airbnb (3250 Racquet Circle)</td><td>$1,702.59</td></tr>
+                <tr><td>Enterprise Rental Cars (2 Compact AWD SUVs)</td><td>$774.00</td></tr>
+                <tr><td>Denali Flightseeing (5 Adults, 3 Children)</td><td>$3,138.20</td></tr>
+                <tr><td><i>Flights (SFO to ANC - Estimated)</i></td><td><i>$4,500 – $5,200</i></td></tr>
+                <tr><td><i>Kenai Fjords Marine Cruise (Estimated)</i></td><td><i>$1,450 – $1,600</i></td></tr>
+                <tr><td><i>Alaska Railroad - Coastal Classic (Estimated)</i></td><td><i>~$800</i></td></tr>
+                <tr><td>ACT BIG BUS Transfer (Day 9)</td><td>$524.00</td></tr>
             </tbody>
         </table>
     </div>
