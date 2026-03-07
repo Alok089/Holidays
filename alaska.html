@@ -3,38 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alaska 2026: The Master Expedition Guide</title>
+    <title>Alaska 2026: Master Expedition Guide</title>
     <style>
-        :root {
-            --primary: #003366;
-            --secondary: #005a8d;
-            --accent: #d35400;
-            --veg: #27ae60;
-            --bg: #f4f7f9;
-            --card-bg: #ffffff;
-            --search-bg: #ffffff;
-            --search-border: #dfe1e5;
-            --drive-border: #f39c12;
-            --high: #e74c3c;
-            --medium: #f39c12;
-            --visit: #27ae60;
-            --skip: #7f8c8d;
-        }
-
+        :root { --primary: #003366; --secondary: #005a8d; --accent: #d35400; --veg: #27ae60; --bg: #f4f7f9; --card-bg: #ffffff; }
         * { box-sizing: border-box; }
-        
-        /* Smooth scrolling for anchor links */
         html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg);
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+        body { font-family: -apple-system, sans-serif; background: var(--bg); color: #333; margin: 0; padding: 0; line-height: 1.6; }
+        header { background: var(--primary); color: white; text-align: center; padding: 30px 20px; border-bottom: 5px solid var(--accent); }
+        .back-nav { background: #eef2f5; padding: 15px; text-align: left; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; position: sticky; top: 0; z-index: 1000; }
+        .back-nav a { text-decoration: none; color: var(--primary); font-weight: bold; font-size: 0.9rem; }
+        .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
+        .toc-container { background: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+        .toc-btn { background: #eef2f5; color: var(--secondary); text-decoration: none; padding: 10px; border-radius: 8px; text-align: center; font-weight: bold; font-size: 0.85rem; }
+        .section-title { color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 10px; margin-top: 40px; font-size: 1.8rem; scroll-margin-top: 80px; }
+        .card { background: var(--card-bg); border-radius: 12px; margin-bottom: 25px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); scroll-margin-top: 80px; position: relative; }
+        .day-tag { background: var(--primary); color: white; padding: 12px 20px; font-weight: bold; display: flex; justify-content: space-between; }
+        .content { padding: 25px; padding-bottom: 60px; }
+        .timing-strip { background: #fdf2e9; padding: 10px 15px; border-radius: 8px; margin-bottom: 15px; display: flex; gap: 20px; font-weight: bold; color: var(--accent); border: 1px solid #fae5d3; }
+        .action-btn { background: white; border: 1px solid #dfe1e5; border-radius: 8px; padding: 12px 15px; margin: 10px 0; display: flex; align-items: center; text-decoration: none; font-weight: bold; }
+        .map-btn { color: #27ae60; border-left: 4px solid #27ae60; }
+        .search-btn { color: #d35400; border-left: 4px solid #d35400; }
+        .card-footer-nav { position: absolute; bottom: 0; left: 0; right: 0; background: #f8f9fa; padding: 10px 20px; display: flex; justify-content: space-between; font-size: 0.85rem; border-top: 1px solid #eee; }
+        .card-footer-nav a { text-decoration: none; color: var(--secondary); font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 20px; }
+        th { background: var(--primary); color: white; padding: 15px; text-align: left; }
+        td { padding: 15px; border-bottom: 1px solid #eee; }
+        .total-row { background: #eee; font-weight: bold; }
+        @media (max-width: 600px) { .timing-strip { flex-direction: column; gap: 5px; } .toc-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body id="top">
 
+<div class="back-nav">
+    <a href="index.html">🏠 Return to Home Page</a>
+    <a href="#top">🔼 Back to Top</a>
+</div>
+
+<header>
+    <h1>ALASKA EXPEDITION 2026</h1>
+    <p>May 28 – June 5</p>
+</header>
+
+<div class="container">
+    <div class="toc-container">
+        <h3 style="text-align:center; color:var(--primary);">📍 Quick Navigation</h3>
+        <div class="toc-grid">
+            <a href="#day1" class="toc-btn">Day 1: Arrival</a><a href="#day2" class="toc-btn">Day 2: Ice Trek</a>
+            <a href="#day3" class="toc-btn">Day 3: Zoo & City</a><a href="#day4" class="toc-btn">Day 4: Talkeetna</a>
+            <a href="#day5" class="toc-btn">Day 5: South Drive</a><a href="#day6" class="toc-btn">Day 6: Railroad</a>
+            <a href="#day7" class="toc-btn">Day 7: Kenai Cruise</a><a href="#day8" class="toc-btn">Day 8: Exit Glacier</a>
+            <a href="#day9" class="toc-btn">Day 9: Departure</a><a href="#budget" class="toc-btn" style="background:#fdf2e9; color:#d35400;">Budget</a>
+        </div>
+    </div>
+
+    <h2 class="section-title">🗓️ Itinerary</h2>
+
+    <div class="card" id="day1">
+        <div class="day-tag"><span>MAY 28</span><span>ARRIVAL</span></div>
+        <div class="content">
+            <h2>Touchdown in Anchorage</h2>
+            <p>Pick up SUVs at ANC. Costco run for groceries.</p>
+            <a href="https://maps.app.goo.gl/CEgvpvt9BeJhbc1N8" target="_blank" class="action-btn map-btn">🗺️ Airport to Airbnb</a>
+        </div>
+        <div class="card-footer-nav"><a href="index.html">🏠 Home</a><a href="#top">🔼 Top</a></div>
+    </div>
+
+    <div class="card" id="day2">
+        <div class="day-tag"><span>MAY 29</span><span>MATANUSKA GLACIER</span></div>
+        <div class="content">
+            <div class="timing-strip"><span>🕒 Leave: 7:30 - 8:00 AM</span><span>📍 Reach: 10:00 AM</span></div>
+            <h2>Ice Trek & Blue Moulins</h2>
+            <p><b>Food:</b> Cook & carry for the day. Divide & Conquer strategy applied.</p>
+            <a href="https://maps.app.goo.gl/WnDVD97krKNC29Dr8" target="_blank" class="action-btn map-btn">🗺️ Anchorage to Glacier</a>
+            <a href="https://www.google.com/search?tbm=isch&q=Matanuska+Glacier+ice+trek" target="_blank" class="action-btn search-btn">👆 View: Blue Ice Trek</a>
+        </div>
+        <div class="card-footer-nav"><a href="index.html">🏠 Home</a><a href="#top">🔼 Top</a></div>
+    </div>
+
+    <div class="card" id="day3">
+        <div class="day-tag"><span>MAY 30</span><span>ZOO & TROLLEY</span></div>
+        <div class="content">
+            <div class="timing-strip"><span>🕒 Leave: 9:30 AM</span><span>📍 Reach: 10:00 AM</span></div>
+            <h2>Animals & History</h2>
+            <p><b>Note:</b> Visit Alaska Wild Berry Products for the chocolate waterfall!</p>
+            <a href="https://www.google.com/search?tbm=isch&q=Alaska+Wild+Berry+Products+chocolate+waterfall" target="_blank" class="action-btn search-btn">👆 View: Chocolate Waterfall</a>
+            <a href="https://www.google.com/search?tbm=isch&q=Lake+Hood+Seaplane+Base" target="_blank" class="action-btn search-btn">👆 View: Seaplane Base</a>
+        </div>
+        <div class="card-footer-nav"><a href="index.html">🏠 Home</a><a href="#top">🔼 Top</a></div>
+    </div>
+
+    <div class="card" id="day4">
+        <div class="day-tag"><span>MAY 31</span><span>TALKEETNA</span></div>
+        <div class="content">
+            <div class="timing-strip"><span>🕒 Leave: 7:00 AM</span><span>📍 Reach: 10:00 AM</span></div>
+            <h2>Denali Flight & Glacier Landing</h2>
+            <p>Glacier is 10-15°F colder—bring sunglasses and wear layers.</p>
+            <a href="https://maps.app.goo.gl/2qxTjm1ekgPdD71Y8" target="_blank" class="action-btn map-btn">🗺️ Drive to Talkeetna</a>
+        </div>
+        <div class="card-footer-nav"><a href="index.html">🏠 Home</a><a href="#top">🔼 Top</a></div>
+    </div>
+
+    <div class="card" id="day5">
+        <div class="day-tag"><span>JUNE 1</span><span>SOUTH DRIVE</span></div>
+        <div class="content">
+            <div class="timing-strip"><span>🕒 Start: 10:00 AM</span><span>🕒 AWCC: 3:00 PM</span></div>
+            <h2>Alyeska & Wildlife</h2>
+            <a href="https://www.google.com/search?tbm=isch&q=Alyeska+Tram+summit+museum" target="_blank" class="action-btn search-btn">👆 View: Summit Museum</a>
+        </div>
+        <div class="card-footer-nav"><a href="index.html">🏠 Home</a><a href="#top">🔼 Top</a></div>
+    </div>
+
+    <div class="card" id="day6">
+        <div class="day-tag"><span>JUNE 2</span><span>RAILROAD DAY</span></div>
+        <div class="content">
+            <div class="timing-strip"><span>🕒 Leave: 5:00 AM</span><span>📍 Depot: 5:45 AM</span></div>
+            <h2>Coastal Classic to Seward</h2>
+            <p><b>Strict:</b> Arrive 1 hr early for physical passes. ID required for 18+.</p>
+            <a href="https://maps.app.goo.gl/4DKez5sgbFydZpoY6" target="_blank" class="action-btn map-btn">🗺️ Depot Drop-off</a>
+        </div>
+        <div class="card-footer-nav"><a href="index.html">🏠 Home</a><a href="#top">🔼 Top</a></div>
+    </div>
+
+    <div class="card" id="day7">
+        <div class="day-tag"><span>JUNE 3</span><span>MARINE SAFARI</span></div>
+        <div class="content">
+            <div class="timing-strip"><span>🕒 Leave: 9:30 AM</span><span>📍 Harbor: 10:00 AM</span></div>
+            <h2>Kenai Fjords Cruise</h2>
+            <p>7.5-hour tour. Look for calving glaciers and orcas.</p>
+            <a href="https://www.google.com/search?tbm=isch&q=Kenai+Fjords+glacier+calving" target="_blank" class="action-btn search-btn">👆 View: Glacier Calving</a>
+        </div>
+        <div class="card-footer-nav"><a href="index.html">🏠 Home</a><a href="#top">🔼 Top</a></div>
+    </div>
+
+    <div class="card" id="day8">
+        <div class="day-tag"><span>JUNE 4</span><span>EXIT GLACIER</span></div>
+        <div class="content">
+            <div class="timing-strip"><span>🕒 Leave: 9:30 AM</span><span>📍 Reach: 10:00 AM</span></div>
+            <h2>The Ice Face Walk</h2>
+            <a href="https://www.google.com/search?tbm=isch&q=Seward+waterfront+park+playground" target="_blank" class="action-btn search-btn">👆 View: Waterfront Playground</a>
+        </div>
+        <div class="card-footer-nav"><a href="index.html">🏠 Home</a><a href="#top">🔼 Top</a></div>
+    </div>
+
+    <div class="card" id="day9">
+        <div class="day-tag"><span>JUNE 5</span><span>DEPARTURE</span></div>
+        <div class="content">
+            <div class="timing-strip"><span>🕒 Leave: 9:15 AM</span><span>🚌 Terminal: 9:30 AM</span></div>
+            <h2>Seward to Anchorage Transfer</h2>
+            <p>ACT Big Bus departs 10:30 AM. Narrated transfer to ANC Airport.</p>
+        </div>
+        <div class="card-footer-nav"><a href="index.html">🏠 Home</a><a href="#top">🔼 Top</a></div>
+    </div>
+
+    <h2 class="section-title" id="budget">💰 Budget</h2>
+    <div class="card" style="padding:0;">
+        <table>
+            <thead><tr><th>Category</th><th>Amount (USD)</th></tr></thead>
+            <tbody>
+                <tr><td>Anchorage Airbnb</td><td>$1,702.59</td></tr><tr><td>Rental SUVs</td><td>$774.00</td></tr>
+                <tr><td>Denali Flight</td><td>$3,138.20</td></tr><tr><td>Kenai Cruise</td><td>$1,640.00</td></tr>
+                <tr class="total-row"><td>TOTAL CONFIRMED</td><td>$10,078.09</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer style="text-align:center; padding:40px; color:#666;">Wishing the Mehtas a spectacular trip!</footer>
+
+</body>
+</html>
         header {
             background-color: var(--primary);
             color: white;
