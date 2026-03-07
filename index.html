@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehta Family Holidays</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; background: #f4f7f9; text-align: center; padding: 50px 20px; }
+        h1 { color: #003366; margin-bottom: 30px; }
+        .menu-container { max-width: 400px; margin: 0 auto; }
+        .trip-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-decoration: none;
+            display: block;
+            transition: transform 0.2s;
+        }
+        .trip-card:hover { transform: translateY(-3px); }
+        .alaska { border-left: 8px solid #d35400; color: #d35400; font-weight: bold; }
+        .tbd { border-left: 8px solid #ccc; color: #999; cursor: not-allowed; }
+        .status { font-size: 0.8rem; display: block; margin-top: 5px; color: #666; font-weight: normal; }
+    </style>
+</head>
+<body>
+    <h1>🌍 Our 2026 Adventures</h1>
+    <div class="menu-container">
+        <a href="alaska.html" class="trip-card alaska">
+            🏔️ Alaska Expedition
+            <span class="status">May 28 - June 5 (Confirmed)</span>
+        </a>
+
+        <div class="trip-card tbd">
+            🌴 San Diego
+            <span class="status">Dates TBD</span>
+        </div>
+
+        <div class="trip-card tbd">
+            🏖️ Goa
+            <span class="status">Dates TBD</span>
+        </div>
+    </div>
+    <p style="margin-top: 40px; color: #666; font-size: 0.9rem;">Mehta Family Travel Portal</p>
+</body>
+</html>
