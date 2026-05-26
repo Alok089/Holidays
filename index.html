@@ -3,54 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehta Family Holidays</title>
+    <title>Alaska Itinerary 2026</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f7f9; text-align: center; padding: 40px 20px; color: #333; }
-        h1 { color: #003366; margin-bottom: 10px; font-size: 2rem; }
-        .subtitle { color: #666; margin-bottom: 40px; }
-        .menu-container { max-width: 450px; margin: 0 auto; }
-        .trip-card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        :root {
+            --primary: #2563eb;
+            --primary-light: #eff6ff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
         }
-        .trip-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
-        .alaska { border-left: 10px solid #d35400; }
-        .alaska .trip-name { color: #d35400; font-weight: bold; font-size: 1.3rem; display: block; }
-        .tbd { border-left: 10px solid #bdc3c7; background: #fafafa; }
-        .tbd .trip-name { color: #7f8c8d; font-weight: bold; font-size: 1.3rem; display: block; }
-        .status { font-size: 0.9rem; display: block; margin-top: 8px; color: #555; }
-        .chevron { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #ccc; font-size: 1.5rem; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* The vertical line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 24px;
+            width: 4px;
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        .day-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            margin-left: 60px;
+            position: relative;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* The timeline dot */
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: -44px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--bg-page);
+            border-radius: 50%;
+        }
+
+        .day-date {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .day-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 1.5rem 0 0.5rem 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.25rem;
+        }
+
+        .content-block {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            white-space: pre-line;
+        }
+
+        .food-block {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 0.75rem 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #92400e;
+            white-space: pre-line;
+        }
+
+        .bookings-container {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .booking-card {
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+
+        .booking-cost {
+            background: #dbeafe;
+            color: #1e3a8a;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        .booking-details {
+            font-size: 0.875rem;
+            color: #475569;
+            white-space: pre-line;
+        }
+
+        a.map-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        a.map-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .timeline::before {
+                left: 16px;
+            }
+            .day-card {
+                margin-left: 40px;
+                padding: 1.25rem;
+            }
+            .day-card::before {
+                left: -32px;
+                width: 16px;
+                height: 16px;
+                top: 26px;
+            }
+            .booking-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>🌍 Mehta Travel Portal</h1>
-    <p class="subtitle">Our 2026 Expeditions & Adventures</p>
-    <div class="menu-container">
-        <a href="alaska.html" class="trip-card alaska">
-            <span class="trip-name">🏔️ Alaska Expedition</span>
-            <span class="status">May 28 - June 5, 2026</span>
-            <span class="status" style="font-weight: bold; color: #27ae60;">● Confirmed & Booked</span>
-            <span class="chevron">›</span>
-        </a>
-        <div class="trip-card tbd">
-            <span class="trip-name">🌴 San Diego</span>
-            <span class="status">Dates TBD</span>
-            <span class="status">○ Planning Phase</span>
-        </div>
-        <div class="trip-card tbd">
-            <span class="trip-name">🏖️ Goa</span>
-            <span class="status">Dates TBD</span>
-            <span class="status">○ Planning Phase</span>
-        </div>
-    </div>
-    <footer style="margin-top: 60px; font-size: 0.8rem; color: #999;">Built for Alok, Aayu, Amaira, and Ariha.</footer>
+
+    <header>
+        <h1>Alaska Adventure</h1>
+        <p style="color: var(--text-muted);">May 28 - June 4, 2026</p>
+    </header>
+
+    <main class="timeline">
+
+        <article class="day-card">
+            <div class="day-date">Thursday, May 28</div>
+            <h2 class="day-title">🛬 Land in Anchorage</h2>
+            
+            <div class="food-block">
+                <strong>Food:</strong><br>
+                In-Flight
+            </div>
+
+            <h3 class="section-title">Associated Bookings</h3>
+            <div class="bookings-container">
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <span>🛫 SFO <—> Anchorage</span>
+                        <span class="booking-cost">$2217</span>
+                    </div>
+                    <div class="booking-details">Passenger Details: 7 passengers plus 1 lap infant (Ariha).
+Flight no: Alaska 1448
+Note:
+◦ Includes priority boarding and 7 free checked bags (up to 50 lbs each) due to a specific credit card.
+◦ Priority boarding
+◦ Haversack and Handbag is free.
+◦ Lap Child: 1 carry-on and diaper bag</div>
+                </div>
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <span>🚗 Car Rental - Anchorage (2 cars)</span>
+                        <span class="booking-cost">$774</span>
+                    </div>
+                    <div class="booking-details">ID: 70044335 and 70044447</div>
+                </div>
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <span>🏠 Anchorage Air-Bnb</span>
+                        <span class="booking-cost">$1702.59</span>
+                    </div>
+                    <div class="booking-details">ID: HMCK28YTC5
+Accommodation Multi-bedroom Airbnb/Vacation Rentals in Anchorage.
+
+Address: 3250 Racquet Circle, Anchorage, AK 99507.
+
+From the Airport: Head east on International Airport Road for 3.5 miles then turn right onto Old Seward Highway...</div>
+                </div>
+            </div>
+        </article>
+
+        <article class="day-card">
+            <div class="day-date">Friday, May 29</div>
+            <h2 class="day-title">🏔️ Matunska Glacier Walk</h2>
+            
+            <h3 class="section-title">Itinerary Details</h3>
+            <div class="content-block">Leave by: 7:30 - 8:00 AM
+Reach at: 10:00 AM
+
+• After reaching non hikers will drive to sheep mountain lodge which is 15 mins drive.
+• Cell service in that area is very less but this lodge has free wifi
+• Local guides like NOVA Alaska usually offer 9:00 AM or 10:00 AM slots. A mid-morning start for the 2-3 hour trek ensures you finish in time for a late lunch.
+• Glacier Tours (also known as Matanuska Glacier Park) offers the shortest walking tours, typically lasting 1.5–2 hours. These beginner-friendly tours cover about 3 miles round trip and are often praised for their immersive, yet not overly strenuous, experience.
+• Matanushka glacier is 100 miles drive but you can walk on the glacier and enjoy the views and experiences. We can take a tour from there to walk on the glacier. Alot of people do this and call it the Antelope Canyon with ice.</div>
+
+            <div class="food-block">
+                <strong>Food:</strong><br>
+                Lunch: Thepla/Paratha and curd (veg optional) and snacks
+                Dinner: Subway
+            </div>
+            
+            <a href="https://maps.app.goo.gl/WnDVD97krKNC29Dr8" class="map-link" target="_blank">📍 View Directions</a>
+        </article>
+
+        <article class="day-card">
+            <div class="day-date">Saturday, May 30</div>
+            <h2 class="day-title">🐻‍❄️ Alaska Zoo</h2>
+            
+            <h3 class="section-title">Itinerary Details</h3>
+            <div class="content-block">• The Discovery Center offers interactive science exhibits, a planetarium, and a large indoor play area, including "Chomper's Corner" with a resident snapping turtle, Alaska-sized bubbles, and a kinetic playground.
+
+• Anchorage Trolley Tours offer a family-friendly way to see city highlights like Earthquake Park, Lake Hood, and Ship Creek, with minimal walking. Choose a 1-hour city tour or a 1.5–2-hour "Deluxe" option. Strollers are allowed, but infants must sit on an adult's lap. All narrated tours depart from the Log Cabin Visitor Information Center (4th Ave & F St).
+
+• Alaska Wild Berry Products is near downtown and known for its massive chocolate waterfall. Kids can watch chocolatiers work through viewing windows. The shop sells diverse Alaskan treats and unique souvenirs.</div>
+
+            <div class="food-block">
+                <strong>Food:</strong><br>
+                Can carry snacks for the zoo and v can come home for lunch and than leave for downtown
+                Lunch: Bhel / (Optional: Paratha and Vegetables)
+                Dinner: Taco Bell
+            </div>
+
+            <a href="https://maps.app.goo.gl/2zRFdZ6u9TdWFZYN6" class="map-link" target="_blank">📍 View Directions</a>
+        </article>
+
+        <article class="day-card">
+            <div class="day-date">Sunday, May 31</div>
+            <h2 class="day-title">🚁 Talkeetna Flight Landing</h2>
+            
+            <h3 class="section-title">Itinerary Details</h3>
+            <div class="content-block">• Sunglasses are a MUST: The glacier glare is intense. Protect children's eyes with sunglasses or a brimmed hat for the baby.
+• Clothing Layers: Expect it to be 10-15°F (5-8°C) colder on the glacier than in Talkeetna. Dress kids in layers.
+• Boots: Companies provide waterproof "overboots." Ensure your 6-year-old wears sturdy, closed-toe sneakers or hiking boots to fit inside them.</div>
+
+            <div class="food-block">
+                <strong>Food:</strong><br>
+                Lunch: Pulav / Stuff Paratha
+                Dinner: Taco Bell
+            </div>
+
+            <h3 class="section-title">Associated Bookings</h3>
+            <div class="bookings-container">
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <span>🚁 Talketna Air Taxi</span>
+                        <span class="booking-cost">$3138</span>
+                    </div>
+                    <div class="booking-details">Booking reference: GYGRFQXFBFQ7
+• The local supplier is located in a unique octagonal log building at the Talkeetna State Airport • Please arrive 45 minutes prior to your departure.
+• Traveler: Niyati Thosani
+• Participants: 5 adults (Age 12 - 99)
+
+Address: 14212 E 2nd St, Talkeetna, AK</div>
+                </div>
+            </div>
+
+            <a href="https://maps.app.goo.gl/ngRbjYFgTxDABH9d9" class="map-link" target="_blank">📍 View Directions</a>
+        </article>
+
+        <article class="day-card">
+            <div class="day-date">Monday, June 1</div>
+            <h2 class="day-title">🚗 Turnagain Arm Drive</h2>
+            
+            <h3 class="section-title">Itinerary Details</h3>
+            <div class="content-block">• The Alyeska Aerial Tram typically takes 1.5 to 2 hours, though a longer stay is possible if you dine at the summit. The ride is 4-7 minutes each way. Families generally spend 45 minutes to an hour at the summit exploring the observation decks and small museum.</div>
+
+            <a href="https://maps.app.goo.gl/Po5XDtzs7ueiUzPY7" class="map-link" target="_blank">📍 View Directions</a>
+        </article>
+
+        <article class="day-card">
+            <div class="day-date">Tuesday, June 2</div>
+            <h2 class="day-title">🚂 Glassdome Train to Seward</h2>
+            
+            <h3 class="section-title">Itinerary Details</h3>
+            <div class="content-block">Notes:
+• Arrive at the Anchorage Depot by 5:45 AM for the 6:45 AM Coastal Classic departure. The Alaska Railroad, being TSA-regulated, strictly requires check-in one hour prior to departure for boarding passes and seat assignments.
+• Adults (18+): Must present a government-issued photo ID. Even with digital confirmation, physical boarding passes must be obtained from the conductor.
+• Baggage & Strollers: Checked bags or large strollers must be tagged and dropped off at the baggage counter before boarding.
+• Boarding: Boarding starts 20–30 minutes before departure (approx. 6:15–6:25 AM). Arriving an hour early ensures a spot at the front of the line and avoids rushing.</div>
+
+            <div class="food-block">
+                <strong>Food:</strong><br>
+                Lunch: Plain paratha and maag
+                Dinner: Maggi
+            </div>
+
+            <h3 class="section-title">Associated Bookings</h3>
+            <div class="bookings-container">
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <span>🚂 Glass Dome Train</span>
+                        <span class="booking-cost">$800</span>
+                    </div>
+                    <div class="booking-details">ID: WRR772662</div>
+                </div>
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <span>🏠 Seward Air-Bnb</span>
+                        <span class="booking-cost">$1495.36</span>
+                    </div>
+                    <div class="booking-details">ID: HMT5KY85FW
+Address: 14910 Willow Drive, Seward, AK 99664
+Notes:
+• Self check-in with Keypad</div>
+                </div>
+            </div>
+
+            <a href="https://maps.app.goo.gl/QLS1zr6ssbbtP6f1A" class="map-link" target="_blank">📍 View Directions</a>
+        </article>
+
+        <article class="day-card">
+            <div class="day-date">Wednesday, June 3</div>
+            <h2 class="day-title">🛳️ Kenai Fjords Cruise</h2>
+            
+            <div class="food-block">
+                <strong>Food:</strong><br>
+                Pulav, sandwiches, thepla, bhakri and snacks
+            </div>
+
+            <h3 class="section-title">Associated Bookings</h3>
+            <div class="bookings-container">
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <span>🛳️ Kenai Fjyords Cruise (Major Marine Tours)</span>
+                        <span class="booking-cost">$1640</span>
+                    </div>
+                    <div class="booking-details">ID: GYGVN3FZR84R  
+* Take a 7.5-Hour Glacier & Whale Cruise to see tidewater glaciers and marine life.
+* Enjoy a complimentary vegetarian lunch while watching for orcas and humpbacks.
+1412 4th Ave, Seward, AK 99664, USA
+Major Marine Tours: 907-224-8030
+
+Please check in 1 hour before departure at the tour desk located inside the Harbor 360 Hotel lobby. There is public parking across 4th Avenue.</div>
+                </div>
+            </div>
+        </article>
+
+        <article class="day-card">
+            <div class="day-date">Thursday, June 4</div>
+            <h2 class="day-title">🧗🏻‍♂️ Exit Glacier drive</h2>
+            
+            <h3 class="section-title">Itinerary Details</h3>
+            <div class="content-block">Kenai Fjords National Park
+
+Notes: Arrive at the Nature Center between 9:00 AM and 10:00 AM for a relaxed visit with a 6-year-old and an infant. Early arrival guarantees close parking at Exit Glacier (lot fills by 10:30 AM), offers cooler morning air for a nature walk, and gives the 6-year-old time for the Junior Ranger activity and a Ranger chat before crowds arrive.</div>
+
+            <div class="food-block">
+                <strong>Food:</strong><br>
+                Pasta , Thepla and snacks
+            </div>
+
+            <h3 class="section-title">Associated Bookings</h3>
+            <div class="bookings-container">
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <span>🚌 Seward to Anchorage - Bus</span>
+                        <span class="booking-cost">$524</span>
+                    </div>
+                    <div class="booking-details">Alaska Cruise Transportation - Confirmation #144487
+Passenger(s): Niyati Thosani, party of 5 Adults 2 Children (12 and under)
+Date/Time: Jun 05 2026 at 10:30 AM
+Pick-up Location: Cruise Ship Terminal
+Drop-off Location: Airport Ted Stevens Anchorage International
+Service Type: Seward to Anchorage Narrated Direct Transfer - 2.5 hours</div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
 </body>
 </html>
